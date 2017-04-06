@@ -1,4 +1,3 @@
 0	buy milk
-1	drink beer
-0	code more
+1	code more
 0	think about the demo
