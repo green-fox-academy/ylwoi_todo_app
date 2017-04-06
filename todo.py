@@ -9,18 +9,18 @@ class ArgumentReader():
         if len(self.args) == 1:
             print("Python Todo application \n======================= \n \nCommand line arguments: \n-l   Lists all the tasks \n-a   Adds a new task \n-r   Removes an task \n-c   Completes an task ")
         else:
-            command = self.args[1:]
-            if command[0] == '-l':
+            self.command = self.args[1:]
+            if self.command[0] == '-l':
                 task_list = ListTasks()
-            if command[0] == '-a':
-                print('-a')
-            if command[0] == '-r':
+            if self.command[0] == '-a':
+                add_task = AddNewTask()
+            if self.command[0] == '-r':
                 print('-r')
-            if command[0] == '-c':
+            if self.command[0] == '-c':
                 print('-c')
 
     def reader(self):
-        self.db_file = open('DB.txt', 'r')
+        self.db_file = open('DB.txt', 'r+')
         db_list = self.db_file.readlines()
         db_list = [i.replace('\n', '') for i in db_list]
         db_list = [i.split('\t')for i in db_list]
@@ -39,6 +39,15 @@ class ListTasks(ArgumentReader):
                 if self.db_list[i][0] == '1':
                     self.db_list[i][0] = '[x]'
                 print(i+1, ' - ', self.db_list[i][0], self.db_list[i][1])
+
+
+class AddNewTask(ArgumentReader):
+    def __init__(self):
+        self.command = sys.argv[1:]
+        self.db_file = open('DB.txt', 'a')
+        self.db_file.write("0 \t" + str(self.command[1]) + '\n')
+
+
 example = ArgumentReader()
 
 

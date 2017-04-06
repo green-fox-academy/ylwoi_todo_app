@@ -1,2 +1,4 @@
-1	speak to the duck
-0	buy coffe
+1	talk to the duck
+0	buy coffee
+0 	drink beer
+0 	sleep
