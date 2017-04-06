@@ -1,2 +1,4 @@
-0 	blabla
-0 	buy milk
+0	buy milk
+1	drink beer
+0	code more
+0	think about the demo
