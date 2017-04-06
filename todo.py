@@ -15,7 +15,7 @@ class ArgumentReader():
             if self.command[0] == '-a':
                 add_task = AddNewTask()
             if self.command[0] == '-r':
-                print('-r')
+                del_task = DeleteTask()
             if self.command[0] == '-c':
                 print('-c')
 
@@ -46,6 +46,20 @@ class AddNewTask(ArgumentReader):
         self.command = sys.argv[1:]
         self.db_file = open('DB.txt', 'a')
         self.db_file.write("0 \t" + str(self.command[1]) + '\n')
+
+
+class DeleteTask(ArgumentReader):
+    def __init__(self):
+        self.command = sys.argv[1:]
+        self.db_file = open('DB.txt', 'r')
+        lines = self.db_file.readlines()
+        self.db_file.close()
+        self.f = open('DB.txt', 'w')
+        for i in range(len(lines)):
+            if i != int(self.command[1])-1:
+                self.f.write(lines[i])
+        self.f.close()
+
 
 
 example = ArgumentReader()

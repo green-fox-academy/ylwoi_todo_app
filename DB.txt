@@ -1,4 +1,2 @@
-1	talk to the duck
-0	buy coffee
-0 	drink beer
-0 	sleep
+0 	blabla
+0 	buy milk
