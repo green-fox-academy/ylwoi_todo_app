@@ -34,9 +34,9 @@ class ListTasks(ArgumentReader):
             print('No todos for today! :)')
         else:
             for i in range(len(self.db_list)):
-                if self.db_list[i][0] == '0':
+                if self.db_list[i][0] == "0 ":
                     self.db_list[i][0] = '[ ]'
-                if self.db_list[i][0] == '1':
+                if self.db_list[i][0] == "1 ":
                     self.db_list[i][0] = '[x]'
                 print(i+1, ' - ', self.db_list[i][0], self.db_list[i][1])
 
@@ -45,7 +45,7 @@ class AddNewTask(ArgumentReader):
     def __init__(self):
         self.command = sys.argv[1:]
         self.db_file = open('DB.txt', 'a')
-        self.db_file.write("0 \t" + str(self.command[1]) + '\n')
+        self.db_file.write("0\t" + str(self.command[1]) + '\n')
 
 
 class DeleteTask(ArgumentReader):
