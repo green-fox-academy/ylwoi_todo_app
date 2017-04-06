@@ -11,13 +11,20 @@ class ArgumentReader():
         else:
             command = self.args[1:]
             if command[0] == '-l':
-                print("-l")
+                self.reader()
             if command[0] == '-a':
                 print('-a')
             if command[0] == '-r':
                 print('-r')
             if command[0] == '-c':
                 print('-c')
+
+    def reader(self):
+        self.db_file = open('DB.txt', 'r')
+        db_list = self.db_file.readlines()
+        db_list = [i.replace('\n', '') for i in db_list]
+        db_list = [i.split('\t')for i in db_list]
+        print(db_list)
 
 example = ArgumentReader()
 

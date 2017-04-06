@@ -1,0 +1,2 @@
+1	speak to the duck
+0	buy coffe
